@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class ExponentialUsingTaylorSeries {
+
+   
+    public static double calculateExponential(double x, int terms) {
+        double sum = 1.0; 
+        double term = 1.;
+
+        
+        for (int i = 1; i <= terms; i++) {
+            term *= x / i; 
+            sum += term; 
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of x: ");
+        double x = scanner.nextDouble();
+        System.out.print("Enter the number of terms to approximate e^x: ");
+        int terms = scanner.nextInt();
+
+        
+        double result = calculateExponential(x, terms);
+
+        
+        System.out.println("e^" + x + " approximated using Taylor series is: " + result);
+
+        
+        scanner.close();
+    }
+}
